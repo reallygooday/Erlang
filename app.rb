@@ -9,7 +9,6 @@ get "/about" do
 end
 
 
-
 get "/team" do
 	erb :team
 end
