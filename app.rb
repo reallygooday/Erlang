@@ -1,7 +1,42 @@
 require "sinatra"
 
-get "/" do
+get "/" do 
 	erb :home
+end
+
+post "/" do
+	@questionNumber = params[:questionNumber]
+	
+	if params[:selection] == "earth"
+		erb :earth
+	elsif params[:selection] == "erlang"
+		erb :erlang
+	elsif params[:selection] == "saturn"
+		erb :saturn
+	elsif params[:selection] == "jupiter"
+		erb :jupiter
+	elsif params[:selection] == "mars"
+		erb :mars
+	else
+		erb :home	
+	end		
+end	
+
+post "/earth" do
+	@questionNumber = params[:questionNumber].to_i + 1
+	@selection = params[:selection]
+	
+	if params[:questionNumber] == "1" 
+		if params[:selection] == "stay"
+			erb :earth
+		elsif params[:selection] == "leave"
+			erb :home
+		else 
+			erb :earth
+		end
+	else
+		erb :earth
+	end
 end
 
 get "/about" do

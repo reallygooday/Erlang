@@ -1,0 +1,44 @@
+<form action = "/earth" method = "post">
+<input type="hidden" name="questionNumber" value="<%= @questionNumber  %>">
+<% if @questionNumber == "1" %>
+ Cold War II has erupted between Russia and the United States
+Nuclear bombs have been released and landed in your country, wiping out cities from the thermal blast
+  You suffer the effects of ionising radiation and feel ill
+  Do you still stay on planet Earth, or do you go to another planet in Elon Musk's SpaceX?
+  <button type="submit" value="stay" name="selection">Stay on Earth</button>
+  <button type="submit" value="leave" name="selection">Leave Earth</button>
+<% end %>
+
+<% if @questionNumber == 2 %>
+You land safely on the planet
+There is a rocky crater surface
+It's just you and your pet monkey, and 5 apples in the space capsule
+The species on planet Erlang are called Erlangers
+It is customary for strangers to give the Erlangers a gift
+What do you give them as a gift, your monkey or the apples
+  <button type="submit" value="monkey" name="selection">Monkey</button>
+  <button type="submit" value="apples" name="selection">Apple</button>
+<% end %>
+
+<% if @questionNumber == 3 && @selection == "monkey" %>
+  <button type="submit" value="1" name="selection">1</button>
+  <button type="submit" value="2" name="selection">2</button>
+<% end %>
+
+<% if @questionNumber == 3 && @selection == "apples" %>
+  <button type="submit" value="1" name="selection">1</button>
+  <button type="submit" value="2" name="selection">2</button>
+<% end %>
+
+<% if @questionNumber == 4 && @selection == "1" %>
+1
+  <button type="submit" value="1" name="selection">1</button>
+  <button type="submit" value="2" name="selection">2</button>
+<% end %>
+
+<% if @questionNumber == 4 && @selection == "2" %>
+2
+  <button type="submit" value="1" name="selection">1</button>
+  <button type="submit" value="2" name="selection">2</button>
+<% end %>
+</form>
