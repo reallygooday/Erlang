@@ -39,6 +39,24 @@ post "/earth" do
 	end
 end
 
+post "/saturn" do
+    @questionNumber = params[:questionNumber].to_i + 1
+    @selection = params[:selection]
+    @generated_number = rand(10)
+    
+    if params[:questionNumber] == "1"
+        if params[:selection] == "stay"
+            erb :saturn
+        elsif params[:selection] == "leave"
+            erb:home
+        else
+            erb:saturn
+        end
+    else
+        erb:saturn
+    end
+end
+ 
 get "/about" do
 	erb :about
 end

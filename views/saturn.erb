@@ -1,0 +1,35 @@
+<form action = "/saturn" method = "post">
+<input type="hidden" name="questionNumber" value="<%= @questionNumber  %>">
+<% if @questionNumber == "1" %>
+Welcome to Saturn. The rings of Saturn are the most extensive ring system of any planet in the Solar System
+They consist of countless small particles.
+Your job if you choose to save this planet is to save the rings of Saturn. What will you do?
+<button type="submit" value="stay" name="selection">Save planet Saturn</button>
+<button type="submit" value="leave" name="selection">Leave Saturn</button>
+<% end %>
+
+<% if @questionNumber == 2 %>
+You made a brave choice to save the rings of saturn.</br>
+I hope you packed your spacesuit, to save the rings of Saturn you must orbit the planet along the rings</br>
+Unlike earth Saturn has many moons so watch out they don't hit you </br>
+</br>You're riding the rings of Saturn and the moons are coming do you try and hit them off? </br>
+<button type="submit" value="yes" name="selection">Yes</button>
+<button type="submit" value="no" name="selection">No</button>
+<% end %>
+
+<% if @questionNumber == 3 && @selection == "yes" %>
+<% if @generated_number <= 5 %>
+You only got hit by <%= @generated_number %> moons, nice work you've saved Saturn... which planet will you save next?
+<button type="submit" value="home" name="selection">1</button>
+<button type="submit" value="2" name="selection">2</button>
+<% else %>
+The moons are coming hard and fast... you've been hit by <%= @generated_number %> moons, your space suit is disintegrating and your oxygen has run out!
+<button type="submit" value="restart" name="selection">Play Again</button>
+<% end %>
+<% end %>
+
+<% if @questionNumber == 3 && @selection == "no" %>
+Even in your space suit you're not invincible... the moons smash your space suit to pieces and your oxygen runs out. You failed to save the planet!
+<% end %>
+
+</form>
